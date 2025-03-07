@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}IoT Home{% endblock %}
+
+{% block content %}
+<h1>Kitchen dashboard</h1>
+<img class="img-fluid float-left" src='data:image/png;base64,{{kitchen_temperature}}'/>
+<img class="img-fluid float-right" src='data:image/png;base64,{{kitchen_humidity}}'/>
+
+{% endblock %}
