@@ -44,6 +44,7 @@ def kitchen_hum():
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     return data
 
+
 # app routing and run
 @app.route('/')
 def home():
