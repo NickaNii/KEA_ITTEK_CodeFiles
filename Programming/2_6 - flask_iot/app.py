@@ -44,9 +44,25 @@ def home():
     return render_template('index.html')
 
 @app.route('/kitchen')
-def stue():
+def kitchen():
     kitchen_temperature = kitchen_temp()
     kitchen_humidity = kitchen_hum()
     return render_template('kitchen.html', kitchen_temperature = kitchen_temperature, kitchen_humidity = kitchen_humidity)
+
+@app.route('/livingroom')
+def livingroom():
+    return render_template('livingroom.html')
+
+@app.route('/bedroom')
+def bedroom():
+    return render_template('bedroom.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 app.run(debug=True)
