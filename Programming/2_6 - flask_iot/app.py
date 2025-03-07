@@ -1,3 +1,4 @@
+# imports
 import base64
 from io import BytesIO
 from matplotlib.figure import Figure
@@ -6,6 +7,7 @@ from get_kitchen_dht11_data import get_kitchen_data
 
 app = Flask(__name__)
 
+# data and graph funtions, plot functions imported from Matplotlib
 def kitchen_temp():
     timestamps, temp, hum = get_kitchen_data(10)
 
@@ -14,8 +16,9 @@ def kitchen_temp():
     ax = fig.subplots()
     fig.subplots_adjust(bottom=0.3)
     ax.tick_params(axis='x', which='both', rotation=30)
-    
-    ax.plot(timestamps, temp)
+    ax.plot(timestamps, temp, linestyle = 'dashed', linewidth='1.0', marker='o')
+    ax.set_xlabel("timestamps")
+    ax.set_ylabel("temperature C")
     # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")
@@ -31,7 +34,9 @@ def kitchen_hum():
     ax = fig.subplots()
     fig.subplots_adjust(bottom=0.3)
     ax.tick_params(axis='x', which='both', rotation=30)
-    ax.plot(timestamps, hum)
+    ax.plot(timestamps, hum, linestyle='dashed', linewidth='1.0', marker='o')
+    ax.set_xlabel("timestamps")
+    ax.set_ylabel("humidity %")
     # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")
@@ -39,6 +44,7 @@ def kitchen_hum():
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     return data
 
+# app routing and run
 @app.route('/')
 def home():
     return render_template('index.html')

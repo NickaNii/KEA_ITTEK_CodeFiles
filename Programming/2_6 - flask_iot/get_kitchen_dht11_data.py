@@ -5,7 +5,7 @@ from time import sleep
 
 
 def get_kitchen_data(number_of_rows):
-        query = """SELECT * FROM kitchen;"""
+        query = """SELECT * FROM kitchen ORDER BY datetime;"""
         datetime = []
         temperature = []
         humidity = []

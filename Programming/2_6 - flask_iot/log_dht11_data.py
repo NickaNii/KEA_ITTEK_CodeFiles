@@ -6,7 +6,9 @@ from time import sleep
 def log_kitchen_dht11():
     while True:
         query = """INSERT INTO kitchen (datetime, temperature, humidity) VALUES(?, ?, ?)"""
-        data = (datetime.now(), randint(0, 30), randint(0, 100))
+        now = datetime.now()
+        now = now.strftime("%d/%m/%y %H:%M:%S")
+        data = (now, randint(0, 30), randint(0, 100))
 
         try:
             conn = sqlite3.connect("database/sensor_data.db")
