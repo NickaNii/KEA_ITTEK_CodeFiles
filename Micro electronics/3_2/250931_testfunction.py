@@ -10,3 +10,5 @@ for i in range(num_strings):
 
 combined = " ".join(strings)
 print(combined)
+print("Total length:", len(combined))
+print("Thanks gang!")
