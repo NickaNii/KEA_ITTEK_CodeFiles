@@ -11,5 +11,5 @@ class Scanner:
     def scan(self):
          print(f"scanning from {self.ip_from} to {self.ip_to}")
 
-scan = Scanner("192.168.1.0", "192.168.1.100", "fast")
-scan.scan()
+
+
